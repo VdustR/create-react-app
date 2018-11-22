@@ -47,10 +47,10 @@ const openBrowser = require('react-dev-utils/openBrowser');
 const paths = require('../config/paths');
 const path = require('path');
 const configFactory = require(process.env.WEBPACK_CONFIG
-  ? path.join(paths.appPath, 'config', process.env.WEBPACK_CONFIG)
+  ? path.join(paths.appPath, process.env.WEBPACK_CONFIG)
   : '../config/webpack.config');
 const createDevServerConfig = require(process.env.WEBPACK_DEV_SERVER_CONFIG
-  ? path.join(paths.appPath, 'config', process.env.WEBPACK_DEV_SERVER_CONFIG)
+  ? path.join(paths.appPath, process.env.WEBPACK_DEV_SERVER_CONFIG)
   : '../config/webpackDevServer.config');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);

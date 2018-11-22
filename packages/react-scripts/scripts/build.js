@@ -38,7 +38,7 @@ const webpack = require('webpack');
 const bfj = require('bfj');
 const paths = require('../config/paths');
 const configFactory = require(process.env.WEBPACK_CONFIG
-  ? path.join(paths.appPath, 'config', process.env.WEBPACK_CONFIG)
+  ? path.join(paths.appPath, process.env.WEBPACK_CONFIG)
   : '../config/webpack.config');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');

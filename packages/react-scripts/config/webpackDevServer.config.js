@@ -13,10 +13,10 @@ const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const path = require('path');
+const paths = require('./paths');
 const config = require(process.env.WEBPACK_CONFIG
   ? path.join(paths.appPath, process.env.WEBPACK_CONFIG)
   : './webpack.config');
-const paths = require('./paths');
 const fs = require('fs');
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';

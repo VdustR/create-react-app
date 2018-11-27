@@ -44,9 +44,14 @@ const {
   prepareUrls,
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
+const path = require('path');
 const paths = require('../config/paths');
-const config = require('../config/webpack.config.dev');
-const createDevServerConfig = require('../config/webpackDevServer.config');
+const config = require(process.env.WEBPACK_CONFIG
+  ? path.join(paths.appPath, process.env.WEBPACK_CONFIG)
+  : '../config/webpack.config');
+const createDevServerConfig = require(process.env.WEBPACK_DEV_SERVER_CONFIG
+  ? path.join(paths.appPath, process.env.WEBPACK_DEV_SERVER_CONFIG)
+  : '../config/webpackDevServer.config');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;

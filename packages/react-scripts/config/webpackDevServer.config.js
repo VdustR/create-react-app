@@ -12,6 +12,7 @@ const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
+const path = require('path');
 const config = require(process.env.WEBPACK_CONFIG
   ? path.join(paths.appPath, process.env.WEBPACK_CONFIG)
   : './webpack.config');

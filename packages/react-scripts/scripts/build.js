@@ -36,10 +36,10 @@ const chalk = require('chalk');
 const fs = require('fs-extra');
 const webpack = require('webpack');
 const bfj = require('bfj');
+const paths = require('../config/paths');
 const config = require(process.env.WEBPACK_CONFIG
   ? path.join(paths.appPath, process.env.WEBPACK_CONFIG)
   : '../config/webpack.config');
-const paths = require('../config/paths');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');

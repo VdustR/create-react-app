@@ -99,23 +99,33 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
-  appPublic: resolveApp('public'),
-  appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveModule(resolveApp, 'src/index'),
+  appBuild: resolveApp(process.env.PATHS_APP_BUILD || 'build'),
+  appPublic: resolveApp(process.env.PATHS_APP_PUBLIC || 'public'),
+  appHtml: resolveApp(process.env.PATHS_APP_HTML || 'public/index.html'),
+  appIndexJs: resolveModule(
+    resolveApp,
+    path.join(process.env.PATHS_APP_SRC || 'src', 'index')
+  ),
   appPackageJson: resolveApp('package.json'),
-  appSrc: resolveApp('src'),
+  appSrc: resolveApp(process.env.PATHS_APP_SRC || 'src'),
   appTsConfig: resolveApp('tsconfig.json'),
   yarnLockFile: resolveApp('yarn.lock'),
-  testsSetup: resolveModule(resolveApp, 'src/setupTests'),
-  proxySetup: resolveApp('src/setupProxy.js'),
+  testsSetup: resolveModule(
+    resolveApp,
+    path.join(process.env.PATHS_APP_SRC || 'src', 'setupTests')
+  ),
+  proxySetup: resolveApp(
+    path.join(process.env.PATHS_APP_SRC || 'src', 'setupProxy.js')
+  ),
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
-  appTypeDeclarations: resolveApp('src/react-app-env.d.ts'),
+  appTypeDeclarations: resolveApp(
+    path.join(process.env.PATHS_APP_SRC || 'src', 'react-app-env.d.ts')
+  ),
   ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
 };
 

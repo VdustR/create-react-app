@@ -101,7 +101,9 @@ module.exports = {
   appPath: resolveApp('.'),
   appBuild: resolveApp(process.env.PATHS_APP_BUILD || 'build'),
   appPublic: resolveApp(process.env.PATHS_APP_PUBLIC || 'public'),
-  appHtml: resolveApp(process.env.PATHS_APP_HTML || 'public/index.html'),
+  appHtml: resolveApp(
+    path.join(process.env.PATHS_APP_PUBLIC || 'public', 'index.html')
+  ),
   appIndexJs: resolveModule(
     resolveApp,
     path.join(process.env.PATHS_APP_SRC || 'src', 'index')
